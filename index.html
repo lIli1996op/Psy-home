@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lili 老师工作台</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👩‍🏫</text></svg>">
+  <!-- 表格解析/导出（XLSX）与 Word 预览（mammoth），离线时自动降级为 CSV / 下载 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js" defer></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">L</div>
+        <div class="brand-text">
+          <div class="brand-name">Lili 老师工作台</div>
+          <div class="brand-sub">智慧校园 · 工作协同</div>
+        </div>
+      </div>
+      <nav class="nav" id="nav"></nav>
+      <div class="side-foot">数据本地存储 · 与工作台权限一致</div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-btn" id="menu-btn" title="展开/收起导航">☰</button>
+          <h1 id="page-title">日历仪表盘</h1>
+        </div>
+        <div class="topbar-right">
+          <span class="who">👩‍🏫 李老师</span>
+        </div>
+      </header>
+      <section class="content" id="content"></section>
+    </main>
+  </div>
+
+  <div id="modal-root"></div>
+
+  <script src="assets/js/holidays.js"></script>
+  <script src="assets/js/db.js"></script>
+  <script src="assets/js/components.js"></script>
+  <script src="assets/js/lists.js"></script>
+  <script src="assets/js/editable-table.js"></script>
+  <script src="assets/js/calendar.js"></script>
+  <script src="assets/js/modules.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function () {
+      document.querySelector('.app').classList.toggle('nav-collapsed');
+    });
+  </script>
+</body>
+</html>
